@@ -1,4 +1,7 @@
-$board-bg-color: aqua;
+$board-bg-color: #0079bf;
+$navbar-app-bg-color: #0067a3;
+$navbar-board-bg-color: #0079bf; 
+$gap: 10px;
 
 body {
   margin: 0;
@@ -7,12 +10,46 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.3em;
+  font-size: 14px;
 }
 
-.trello-master{
+.trello-master{ 
   height: 100vh;
   display: grid;
   grid-template-rows: 40px 50px 1fr;
-  line-height: 1.3em;
   background-color: $board-bg-color;
+
+  .navbar {
+    padding-left: $gap;
+    display: flex;
+    align-items: center;
+
+    &.app{
+      font-size: 1.5rem;
+      background-color: $navbar-app-bg-color;
+    }
+
+    &.board{
+      font-size: 1.1rem;
+      background-color: $navbar-board-bg-color;
+    }
+  }
+
+  .board-columns {
+    display: flex;
+    overflow-x: auto;
+  
+    .column{
+      flex: 0 0 auto;
+      width: 300px;
+      height: calc(100% - #{$gap});
+
+      > * {
+        background-color: #ebecf0;
+        color: #333;
+        padding: 0 8px;
+      }
+    }
+  }
 }
